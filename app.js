@@ -24,7 +24,7 @@ function renderProducts(){
                     <div class="add-to-wishlist">
                         <img src="./icons/heart.png" alt="add to wish list">
                     </div>
-                    <div class="add-to-cart">
+                    <div class="add-to-cart" onClick="addToCart(${product.id })">
                         <img src="./icons/bag-plus.png" alt="add to cart">
                     </div>
                 </div>
@@ -34,3 +34,22 @@ function renderProducts(){
 }
 
 renderProducts()
+
+// cart array
+let cart = []
+function addToCart(id) {
+  // Check if product already exists in cart
+  if(cart.some((item) => item.id === id)) {
+    alert("Product already in cart!!")
+  }
+  else {
+    const item = products.find( (product) => product.id === id) ;
+
+    cart.push({
+      ...item,
+      numberOfUnits: 1,
+    });
+  }
+
+  updateCart();
+}
