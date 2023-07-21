@@ -2,6 +2,7 @@
 // SELECT ELEMENTS
 
 const productsEl = document.querySelector('.products');
+const cartItems = document.querySelector('.cart-items');
 
 
 // RENDER PRODUCTS
@@ -52,4 +53,32 @@ function addToCart(id) {
   }
 
   updateCart();
+}
+
+// update cart
+function updateCart(){
+  renderCartItems();
+  // renderSubTotal();
+}
+
+// Render cartItems 
+function renderCartItems() {
+  cart.forEach((product) => {
+    cartItems.innerHTML = `
+      <div class="cart-item">
+          <div class="item-info">
+              <img src=${product.imgSrc}>
+              <h4>${product.name}</h4>
+          </div>
+          <div class="unit-price">
+              <small>$</small>${product.price}
+          </div>
+          <div class="units">
+              <div class="btn minus">-</div>
+              <div class="number">${product.numberOfUnits}</div>
+              <div class="btn plus">+</div>           
+          </div>
+      </div>
+    `
+  })
 }
