@@ -25,7 +25,7 @@ function renderProducts(){
                     <div class="add-to-wishlist">
                         <img src="./icons/heart.png" alt="add to wish list">
                     </div>
-                    <div class="add-to-cart" onClick="addToCart(${product.id })">
+                    <div class="add-to-cart" onclick="addToCart(${product.id })">
                         <img src="./icons/bag-plus.png" alt="add to cart">
                     </div>
                 </div>
@@ -67,16 +67,16 @@ function renderCartItems() {
     cartItems.innerHTML += `
       <div class="cart-item">
           <div class="item-info">
-              <img src=${product.imgSrc}>
+              <img src=${product.imgSrc} alt=${product.name}>
               <h4>${product.name}</h4>
           </div>
           <div class="unit-price">
               <small>$</small>${product.price}
           </div>
           <div class="units">
-              <div class="btn minus">-</div>
+              <div class="btn minus" onclick="changeNumberOfUnits('minus', ${item.id})">-</div>
               <div class="number">${product.numberOfUnits}</div>
-              <div class="btn plus">+</div>           
+              <div class="btn plus" onclick="changeNumberOfUnits('plus', ${item.id})">+</div>           
           </div>
       </div>
     `
