@@ -64,7 +64,7 @@ function updateCart(){
 // Render cartItems 
 function renderCartItems() {
   cart.forEach((product) => {
-    cartItems.innerHTML = `
+    cartItems.innerHTML += `
       <div class="cart-item">
           <div class="item-info">
               <img src=${product.imgSrc}>
