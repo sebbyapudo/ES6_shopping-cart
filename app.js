@@ -82,3 +82,25 @@ function renderCartItems() {
     `
   })
 }
+
+// change number of units for an item
+function changeNumberOfUnits(action, id) {
+  cart = cart.map( (item) => {
+
+    let numberOfUnits = item.numberOfUnits;
+    if(item.id === id){
+      if(action == "minus"){
+        numberOfUnits--
+      }
+      else if(action === "plus") {
+        numberOfUnits++
+      }
+    }
+    
+    return {
+      ...item,
+      numberOfUnits,
+    };
+  }) 
+  // updateCart();
+}
